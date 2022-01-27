@@ -5,7 +5,7 @@ import threading
 
 METADATA_LOCATION = "DBSpeech-1.0/metadata.csv" 
 WAV_LOCATION = "DBSpeech-1.0/wavs/"
-LINES_TO_SKIP = 1060
+LINES_TO_SKIP = 0
 
 def parse_line(line):
     arr = line.split("|")
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     
     gui = tkinter.Tk()
     gui.geometry("450x250")
-    gui.title("TTS Dataset Maker")
+    gui.title("Check TTS Dataset")
     gui.protocol("WM_DELETE_WINDOW", close_script)
     canvas = tkinter.Canvas(gui, width=300, height=170, bg = '#afeeee')
     canvas.pack()

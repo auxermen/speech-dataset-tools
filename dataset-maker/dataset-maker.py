@@ -7,15 +7,16 @@ import wave
 
 import sentences
 
+SOUNDS_PATH = "sounds/"
+WAV_PREFIX = "speaker_"
+METADATA_PATH = "metadata.csv"
+
 SENTENCE_ID = 0
 IS_RECORDING = False
 IS_PLAYING_BACK = True
 IS_WRITING_SOUND_FILE = False
 DONE_SENTENCES = []
-SOUNDS_PATH = "sounds/"
 SOUND_ID = -1
-WAV_PREFIX = "speaker_"
-METADATA_PATH = "metadata.csv"
 METADATA_FILE = None
 
 def load_metadata():
@@ -104,8 +105,6 @@ def recording_loop():
     FORMAT = pyaudio.paInt16
     CHANNELS = 2
     RATE = 22050
-    #RECORD_SECONDS = 5
-    #WAVE_OUTPUT_FILENAME = "output.wav"
     
     p = pyaudio.PyAudio()  
             
@@ -127,10 +126,6 @@ def recording_loop():
 
             print("* done recording")
 
-            #stream.stop_stream()
-            #stream.close()
-            #p.terminate()
-
             wf = wave.open(SOUNDS_PATH + WAV_PREFIX + "{:04d}".format(SOUND_ID) + ".wav", 'wb')
             IS_WRITING_SOUND_FILE = False
             wf.setnchannels(CHANNELS)
@@ -145,20 +140,10 @@ if __name__ == '__main__':
     gui.geometry("450x250")
     gui.title("TTS Dataset Maker")
     gui.protocol("WM_DELETE_WINDOW", close_script)
-    #volume_slider = tkinter.Scale(gui, from_=0, to=100, orient=tkinter.HORIZONTAL, command=update_volume)
-    #volume_slider.set(100)
-    #volume_slider.pack()
     canvas = tkinter.Canvas(gui, width=300, height=170, bg = '#afeeee')
     canvas.create_text(155,85,fill="darkblue",font="Times 12",
                         text=insert_newlines(sentences.SENTENCES[SENTENCE_ID]))
     canvas.pack()
-    #sentence_text = tkinter.Text(gui, state='disabled', width=44, height=5)
-    #sentence_text.tag_configure("center", justify='center')
-    #sentence_text.configure(state='normal')
-    #sentence_text.insert('1.0', 'This is a Text widget demo This is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demoThis is a Text widget demo')
-    #sentence_text.tag_add("center", "1.0", "end")
-    #sentence_text.configure(state='disabled')
-    #sentence_text.pack()
     record_button = tkinter.Button(gui, text='Start recording', command=start_recording)
     record_button.pack()
     recording_thread = threading.Thread(target=recording_loop)
