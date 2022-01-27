@@ -1,0 +1,95 @@
+-----------------------------------------------------------------------------
+The DB Speech Dataset
+
+Version 1.0
+January 15, 2022
+-----------------------------------------------------------------------------
+
+
+OVERVIEW
+
+This is a public domain speech dataset consisting of 1,065 short audio clips
+of a single speaker reading passages from a non-fiction book. A transcription
+is provided for each clip. Clips vary in length from 1 to 15 seconds and have
+a total length of approximately 1 hour and 20 minutes.
+
+The text was published in 1904, and is in the public domain.
+The audio was recorded in 2011 by the LibriVox project and is also in the
+public domain.
+
+
+
+FILE FORMAT
+
+Metadata is provided in metadata.csv. This file consists of one record per
+line, delimited by the pipe character (0x7c). The fields are:
+
+  1. ID: this is the name of the corresponding .wav file
+  2. Transcription: words spoken by the reader (UTF-8)
+  3. Normalized Transcription: transcription with numbers, ordinals, and
+     monetary units expanded into full words (UTF-8).
+
+Each audio file is a single-channel 16-bit PCM WAV with a sample rate of
+22050 Hz.
+
+
+
+STATISTICS
+
+Total Clips            1,065
+Total Words            225,715 //TODO
+Total Characters       1,308,674 //TODO
+Total Duration         1:19:49
+Mean Clip Duration     6.57 sec //TODO
+Min Clip Duration      1.11 sec //TODO
+Max Clip Duration      10.10 sec //TODO
+Mean Words per Clip    17.23 //TODO
+Distinct Words         13,821 //TODO
+
+
+
+MISCELLANEOUS
+
+The audio clips range in length from approximately 1 second to 15 seconds.
+They were segmented automatically based on silences in the recording. Clip
+boundaries generally align with sentence or clause boundaries, but not always.
+
+The text was matched to the audio manually, and a QA pass was done to ensure
+that the text accurately matched the words spoken in the audio.
+
+The original LibriVox recordings were distributed as 64 kbps MP3 files. As a
+result, they may contain artifacts introduced by the MP3 encoding.
+
+For more information or to report errors, please email luka.koncar@gmail.com.
+
+
+
+LICENSE
+
+This dataset is in the public domain. There are no restrictions on its use.
+
+CHANGELOG
+
+* 1.0 (January 15, 2022):
+  Initial release
+
+
+CREDITS
+
+This dataset consists of excerpts from the following work:
+
+* Tolstoy, Lev Nikolayevich. Bethink Yourselves!. 1904.
+
+Recordings by David Barnes. Alignment and annotation by Luka Končar. All text,
+audio, and annotations are in the public domain.
+
+There's no requirement to cite this work, but if you'd like to do so, you can
+link to: https://keithito.com/LJ-Speech-Dataset
+
+or use the following:
+@misc{ljspeech17,
+  author       = {Keith Ito},
+  title        = {The LJ Speech Dataset},
+  howpublished = {\url{https://keithito.com/LJ-Speech-Dataset/}},
+  year         = 2017
+}
