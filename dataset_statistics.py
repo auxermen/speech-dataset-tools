@@ -26,7 +26,7 @@ for file in os.listdir(directory):
         durations.append(duration)
         total_duration += duration
         
-with open("DBSpeech-1.0/metadata.csv", 'r') as file:
+with open(METADATA_PATH, 'r') as file:
     line = file.readline()
     while line:
         transcription = line.split("|")[2]
