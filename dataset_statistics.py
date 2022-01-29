@@ -46,7 +46,7 @@ with open(METADATA_PATH, 'r') as file:
 print("Total Clips            %s" % f'{len(durations):,}') 
 print("Total Words            %s" % f'{total_words:,}') 
 print("Total Characters       %s" % f'{total_chars:,}') 
-print("Total Duration         %d:%d:%d" % (int(total_duration / 3600), int(total_duration % 3600 / 60), int(total_duration % 60))) 
+print("Total Duration         %02d:%02d:%02d" % (int(total_duration / 3600), int(total_duration % 3600 / 60), int(total_duration % 60))) 
 print("Mean Clip Duration     %.2f sec" % (total_duration / len(durations))) 
 print("Min Clip Duration      %.2f sec" % min(durations)) 
 print("Max Clip Duration      %.2f sec" % max(durations)) 
